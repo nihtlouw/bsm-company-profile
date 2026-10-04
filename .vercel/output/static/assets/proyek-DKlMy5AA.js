@@ -1,0 +1,1 @@
+import{n as e}from"./projects-B2W0o_oV.js";var t=e;export{t as component};

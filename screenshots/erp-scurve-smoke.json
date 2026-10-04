@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/erp/proyek/rspad",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Portal proyek — Berjaya Sukses Makmur",
+      "hasCanvas": false,
+      "bodyTextLen": 170,
+      "bodyTextHash": "818538a2269dc1d22638fde3b4ea1a898aad5330a3adbe50ae235c7fc6d98f93",
+      "bodyTextPrefix": "Portal proyek Berjaya Sukses Makmur Dasbor Prospek Proyek Penawa",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/erp-scurve-smoke.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Portal proyek — Berjaya Sukses Makmur",
+      "hasCanvas": false,
+      "bodyTextLen": 182,
+      "bodyTextHash": "3a6752ae40ceff6b93f537c6524d54d09ea5e7fbf35d44c968312139ae0c4a5d",
+      "bodyTextPrefix": "Portal proyek Berjaya Sukses Makmur Dasbor Prospek Proyek Penawa",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/erp-scurve-smoke-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/erp-scurve-smoke.json"
+}

@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/profil-perusahaan",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Company Profile PDF — Kontraktor Listrik | PT Berjaya Sukses Makmur",
+      "hasCanvas": false,
+      "bodyTextLen": 1765,
+      "bodyTextHash": "876b4e8f11fc4b3adc49bafc3264a2a4a5dca336e551c25454aa88cf9691fafc",
+      "bodyTextPrefix": "PT. Berjaya Sukses Makmur General Contractor & Supplier Home Abo",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/profile-page.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Company Profile PDF — Kontraktor Listrik | PT Berjaya Sukses Makmur",
+      "hasCanvas": false,
+      "bodyTextLen": 1701,
+      "bodyTextHash": "4fee582bedc2049648dd49757e932e1f852b6bc24413734cb4fbf33db52c9582",
+      "bodyTextPrefix": "PT. Berjaya Sukses Makmur General Contractor & Supplier Menu Dok",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/profile-page-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/profile-page.json"
+}

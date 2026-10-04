@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Kontraktor Listrik Rumah Sakit & Pabrik | PT Berjaya Sukses Makmur",
+      "hasCanvas": false,
+      "bodyTextLen": 7003,
+      "bodyTextHash": "5be6fc7e3ac22247492ea2d9b8487d0dd7a5ae5c676310bd38ac8f7b5a987fa7",
+      "bodyTextPrefix": "Lewati ke konten PT. Berjaya Sukses Makmur General Contractor & ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Kontraktor Listrik Rumah Sakit & Pabrik | PT Berjaya Sukses Makmur",
+      "hasCanvas": false,
+      "bodyTextLen": 6959,
+      "bodyTextHash": "dae76032e7cc4b8f5d0da6c45c3362c6baea3ed32cb766f85f0904f393eeeed5",
+      "bodyTextPrefix": "Lewati ke konten PT. Berjaya Sukses Makmur General Contractor & ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

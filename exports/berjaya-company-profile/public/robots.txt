@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://berjayasuksesmakmur.co.id/sitemap.xml
