@@ -1,6 +1,6 @@
 import { COMPANY, FAQ, OFFICES, SERVICES } from "@/lib/site-data";
 
-const ORIGIN = "https://berjayasuksesmakmur.co.id";
+const ORIGIN = "https://berjaya-company-profile.vercel.app";
 
 export function orgJsonLd() {
   return {
