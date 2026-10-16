@@ -150,6 +150,9 @@ export default defineConfig(({ command, isPreview }) => ({
     host: "0.0.0.0",
     port: 8080,
     strictPort: true,
+    // The live preview is reached through a proxied public hostname
+    // (e.g. *.e2b.app), so Vite's host allowlist must accept it.
+    allowedHosts: true,
   },
   preview: {
     host: "127.0.0.1",
