@@ -424,6 +424,7 @@ function Gallery() {
                 kind: "gallery",
                 title: g.title,
                 image: g.image,
+                fallbackImage: g.fallbackImage,
                 caption: g.caption,
               })}
               className="relative aspect-square overflow-hidden rounded-[14px] bg-navy"
