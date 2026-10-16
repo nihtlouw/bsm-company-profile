@@ -77,7 +77,8 @@ export const PROJECTS = [
     background: "Company Profile BSM Karawang 2025 memiliki bagian berjudul “Instalasi Electrical Rumah Sakit” pada halaman 29.",
     solution: "Halaman sumber menampilkan foto instalasi/area rumah sakit. Nama fasilitas, tanggal, nilai kontrak, kapasitas, dan uraian teknis rinci tidak dicantumkan pada halaman tersebut.",
     result: "Ditampilkan sebagai dokumentasi jenis pekerjaan, bukan klaim hasil terukur atau studi kasus klien tertentu.",
-    image: "/images/documented-work/hospital.svg",
+    image: "/images/documented-work/hospital-patient-room.webp",
+    fallbackImage: "/images/documented-work/hospital.svg",
   },
   {
     id: "residential-electrical",
@@ -89,7 +90,8 @@ export const PROJECTS = [
     background: "Company Profile BSM Karawang 2025 memiliki bagian berjudul “Instalasi Jaringan Electrical Perumahan” pada halaman 30.",
     solution: "Halaman sumber menampilkan beberapa foto perumahan dan perlengkapan kelistrikan. Tanggal dan lingkup kontrak tidak dicantumkan pada halaman tersebut.",
     result: "Ditampilkan sebagai dokumentasi jenis pekerjaan; detail proyek hanya akan ditambahkan jika tersedia dan disetujui untuk publikasi.",
-    image: "/images/documented-work/residential.svg",
+    image: "/images/documented-work/residential-network-street.webp",
+    fallbackImage: "/images/documented-work/residential.svg",
   },
   {
     id: "mv-network",
@@ -101,7 +103,8 @@ export const PROJECTS = [
     background: "Company Profile BSM Karawang 2025 memuat bagian “Instalasi Jaringan Electrical 20 KV SKTM-SUTM” pada halaman 31–32.",
     solution: "Foto dokumentasi memperlihatkan panel/cubicle, kabel, pekerjaan jaringan, dan perlengkapan listrik. Detail lokasi atau pemilik aset tidak disimpulkan dari foto.",
     result: "Ditampilkan sebagai dokumentasi kategori pekerjaan, tanpa klaim tahun proyek, nama klien, atau hasil commissioning yang tidak tertera pada sumber.",
-    image: "/images/documented-work/mv-switchgear.svg",
+    image: "/images/documented-work/medium-voltage-switchgear.webp",
+    fallbackImage: "/images/documented-work/mv-switchgear.svg",
   },
   {
     id: "transformer-panels",
@@ -113,7 +116,8 @@ export const PROJECTS = [
     background: "Foto panel, cubicle, kabel, dan transformator terlihat pada dokumentasi pekerjaan elektrikal di Company Profile BSM Karawang 2025 halaman 31–32.",
     solution: "Keterangan di halaman sumber bersifat visual dan tidak menjelaskan merek, kapasitas, tanggal pelaksanaan, maupun lingkup kontrak secara lengkap.",
     result: "Informasi rinci akan ditambahkan hanya dari dokumen proyek yang dapat diverifikasi dan disetujui untuk publikasi.",
-    image: "/images/documented-work/transformer.svg",
+    image: "/images/documented-work/transformer-installation.webp",
+    fallbackImage: "/images/documented-work/transformer.svg",
   },
 ];
 
@@ -125,10 +129,10 @@ export const CERTIFICATIONS = [
 ] as const;
 
 export const GALLERY = [
-  { id: "hospital", title: "Ilustrasi — fasilitas kesehatan", caption: "Ilustrasi vektor untuk kategori pekerjaan. Rujukan foto dokumentasi asli: Company Profile 2025 halaman 29.", image: "/images/documented-work/hospital.svg" },
-  { id: "residential", title: "Ilustrasi — jaringan perumahan", caption: "Ilustrasi vektor untuk kategori pekerjaan. Rujukan foto dokumentasi asli: Company Profile 2025 halaman 30.", image: "/images/documented-work/residential.svg" },
-  { id: "switchgear", title: "Ilustrasi — jaringan & panel", caption: "Ilustrasi vektor untuk kategori pekerjaan. Rujukan foto dokumentasi asli: Company Profile 2025 halaman 31–32.", image: "/images/documented-work/mv-switchgear.svg" },
-  { id: "transformer", title: "Ilustrasi — transformator", caption: "Ilustrasi vektor untuk kategori pekerjaan. Rujukan foto dokumentasi asli: Company Profile 2025 halaman 31–32.", image: "/images/documented-work/transformer.svg" },
+  { id: "hospital", title: "Instalasi elektrikal fasilitas kesehatan", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 29. Citra dipotong dari foto sumber, diperbesar, dan ditajamkan ringan.", image: "/images/documented-work/hospital-patient-room.webp", fallbackImage: "/images/documented-work/hospital.svg" },
+  { id: "residential", title: "Jaringan electrical perumahan", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 30. Citra dipotong dari foto sumber, diperbesar, dan ditajamkan ringan.", image: "/images/documented-work/residential-distribution-cabinet.webp", fallbackImage: "/images/documented-work/residential.svg" },
+  { id: "switchgear", title: "Panel / cubicle tegangan menengah", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 31. Citra dipotong dari foto sumber, diperbesar, dan ditajamkan ringan.", image: "/images/documented-work/medium-voltage-switchgear.webp", fallbackImage: "/images/documented-work/mv-switchgear.svg" },
+  { id: "cable-trays", title: "Tray kabel ruang elektrikal", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 32. Citra dipotong dari foto sumber, diperbesar, dan ditajamkan ringan.", image: "/images/documented-work/industrial-cable-trays.webp", fallbackImage: "/images/documented-work/mv-switchgear.svg" },
 ] as const;
 
 export const CLIENTS = ["MEDCOENERGI", "Elnusa", "PUSRI", "Pertamina"] as const;
@@ -171,9 +175,9 @@ export const PROFILE_PAGES = [
   { src: "/images/profile/p2.jpg", title: "Tentang perusahaan", note: "Fakta, visi, dan misi" },
   { src: "/images/profile/p3.jpg", title: "Layanan", note: "Empat lingkup elektrikal + standar kerja" },
   { src: "/images/profile/p4.jpg", title: "Cara kerja & kurva S", note: "Alur 4 tahap dan kendali progres" },
-  { src: "/images/profile/p5.jpg", title: "Portofolio", note: "RSPAD, pabrik, gedung komersial" },
+  { src: "/images/profile/p5.jpg", title: "Portofolio", note: "Dokumentasi pekerjaan dari company profile" },
   { src: "/images/profile/p6.jpg", title: "Portofolio & galeri", note: "Fasilitas kesehatan, panel, tray" },
-  { src: "/images/profile/p7.jpg", title: "Legalitas & klien", note: "NIB, SBU, SIUJK, SMK3, testimoni" },
+  { src: "/images/profile/p7.jpg", title: "Legalitas & klien", note: "NIB, PKP, e-CHSEMS dan dokumen pendukung" },
   { src: "/images/profile/p8.jpg", title: "Kontak", note: "Kantor Palembang & Karawang" },
 ] as const;
 
