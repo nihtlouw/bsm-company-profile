@@ -3,7 +3,7 @@ import { ArrowLeft, Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useFeedback, type ModalState } from "@/lib/feedback";
-import { COMPANY, NAV, PROFILE_FILENAME, PROFILE_PDF, SERVICES } from "@/lib/site-data";
+import { COMPANY, NAV, OFFICES, PROFILE_PDF, SERVICES } from "@/lib/site-data";
 import { cn, waLink } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -107,8 +107,8 @@ export function SiteHeader() {
             Company profile
           </Link>
           <Button asChild variant="outline" className="mt-2">
-            <a href={PROFILE_PDF} download={PROFILE_FILENAME} onClick={() => setOpen(false)}>
-              Unduh PDF
+            <a href={PROFILE_PDF}  onClick={() => setOpen(false)}>
+              Minta company profile via email
             </a>
           </Button>
           <Button asChild className="mt-2">
@@ -129,7 +129,7 @@ export function CampaignHeader() {
         <Brand light />
         <div className="flex items-center gap-4">
           <a
-            href="tel:+6281234567890"
+            href={"tel:+" + COMPANY.waNumber}
             className="hidden items-center gap-1.5 text-sm font-semibold text-paper sm:inline-flex"
           >
             <Phone className="size-4" />
@@ -199,7 +199,7 @@ export function SiteFooter() {
             </li>
             <li>
               <Link to="/kampanye-instalasi-listrik" className="hover:text-paper">
-                Survey instalasi gratis
+                Permintaan survey instalasi
               </Link>
             </li>
             <li>
@@ -223,17 +223,17 @@ export function SiteFooter() {
         </div>
         <div>
           <h4 className="mb-3.5 text-sm font-extrabold text-paper">Kontak</h4>
-          <p className="text-sm leading-8">
-            Palembang & Karawang
-            <br />
-            <a href={`mailto:${COMPANY.email}`} className="hover:text-paper">
-              {COMPANY.email}
-            </a>
-            <br />
-            <a href={`tel:+${COMPANY.waNumber}`} className="hover:text-paper">
-              {COMPANY.phoneDisplay}
-            </a>
-          </p>
+          <div className="space-y-4 text-sm leading-relaxed">
+            {OFFICES.map((office) => (
+              <div key={office.city}>
+                <strong className="block text-paper">{office.city}</strong>
+                <p>{office.line}</p>
+                <a href={"mailto:" + office.email} className="mt-1 inline-block hover:text-paper">{office.email}</a>
+                <br />
+                <a href={"tel:+" + office.phone.replace(/[^0-9]/g, "")} className="hover:text-paper">{office.phone}</a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="mx-auto mt-9 flex max-w-6xl flex-wrap justify-between gap-2.5 border-t border-paper/10 px-5 pt-5 text-xs md:px-8">
@@ -375,5 +375,5 @@ export const MAIN_WA = waLink(
   "Halo, saya ingin bertanya tentang layanan Berjaya Sukses Makmur.",
 );
 export const CAMPAIGN_WA = waLink(
-  "Halo, saya tertarik dengan promo survey gratis instalasi listrik.",
+  "Halo, saya tertarik dengan permintaan survey lokasi instalasi listrik.",
 );
