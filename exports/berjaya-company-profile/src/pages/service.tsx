@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/lib/json-ld";
 import { breadcrumbJsonLd, serviceJsonLd } from "@/lib/seo";
 import { SeoHead } from "@/lib/seo-head";
-import { COMPANY, PROFILE_FILENAME, PROFILE_PDF, SERVICE_PAGES, SERVICES } from "@/lib/site-data";
+import { COMPANY, PROFILE_PDF, SERVICE_PAGES, SERVICES } from "@/lib/site-data";
 
 export function ServiceRoute() {
   const { slug = "" } = useParams();
@@ -68,10 +68,10 @@ export function ServiceRoute() {
             </ul>
             <a
               href={PROFILE_PDF}
-              download={PROFILE_FILENAME}
+              
               className="mt-5 inline-block text-sm font-bold text-brand"
             >
-              Unduh company profile
+              Minta company profile via email
             </a>
           </aside>
         </section>
@@ -80,7 +80,7 @@ export function ServiceRoute() {
           note="Tim Palembang & Karawang merespons dalam 1×24 jam hari kerja."
         >
           <Button asChild>
-            <Link to="/kampanye-instalasi-listrik">Minta survey gratis</Link>
+            <Link to="/kampanye-instalasi-listrik">Ajukan survey lokasi</Link>
           </Button>
           <Button asChild variant="outline-light">
             <a href="/#contact">Kirim brief</a>
