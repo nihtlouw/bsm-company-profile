@@ -77,7 +77,7 @@ export function ServiceRoute() {
         </section>
         <CtaBand
           title="Butuh survey untuk pekerjaan ini?"
-          note="Tim Palembang & Karawang merespons dalam 1×24 jam hari kerja."
+          note="Waktu tindak lanjut dikonfirmasi oleh tim setelah brief diterima."
         >
           <Button asChild>
             <Link to="/kampanye-instalasi-listrik">Ajukan survey lokasi</Link>
