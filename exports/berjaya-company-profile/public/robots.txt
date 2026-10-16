@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://berjayasuksesmakmur.co.id/sitemap.xml
+Sitemap: https://berjaya-company-profile.vercel.app/sitemap.xml
