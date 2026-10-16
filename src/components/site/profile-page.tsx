@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Download, FileCheck, MapPin, ShieldCheck } from "lucide-react";
+import { FileCheck, MapPin, ShieldCheck } from "lucide-react";
 import { CtaBand } from "@/components/site/cta";
 import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/lib/json-ld";
@@ -8,8 +8,6 @@ import {
   CERTIFICATIONS,
   COMPANY,
   OFFICES,
-  PROFILE_FILENAME,
-  PROFILE_PDF,
   PROJECTS,
   CATEGORY_LABEL,
 } from "@/lib/site-data";
@@ -39,9 +37,8 @@ export function ProfilePage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3.5">
               <Button asChild>
-                <a href={PROFILE_PDF} download={PROFILE_FILENAME}>
-                  <Download className="size-4" />
-                  Unduh company profile (versi publik)
+                <a href="mailto:bsmkrw.inc@gmail.com?subject=Permintaan%20Company%20Profile%20Versi%20Publik">
+                  Minta company profile versi publik
                 </a>
               </Button>
               <Button asChild variant="outline-light">
