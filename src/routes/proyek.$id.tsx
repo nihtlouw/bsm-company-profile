@@ -24,7 +24,7 @@ export const Route = createFileRoute("/proyek/$id")({
         {
           name: "description",
           content: p
-            ? `${p.subtitle} (${p.year}, ${p.location}). ${p.result}`
+            ? `${p.subtitle}. Sumber: ${p.sourcePage}. ${p.result}`
             : "Portofolio proyek elektrikal PT Berjaya Sukses Makmur.",
         },
       ],
@@ -108,7 +108,7 @@ function ProjectRoute() {
         </section>
         <CtaBand
           title="Punya fasilitas dengan kebutuhan serupa?"
-          note="Kirim brief atau minta survey lokasi gratis."
+          note="Kirim brief kebutuhan untuk dikonsultasikan dengan tim."
         >
           <Button asChild>
             <a href="/#contact">Kirim brief</a>
