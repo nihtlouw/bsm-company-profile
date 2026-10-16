@@ -1,6 +1,6 @@
 import { COMPANY, FAQ, OFFICES, SERVICES } from "@/lib/site-data";
 
-const ORIGIN = "https://berjayasuksesmakmur.co.id";
+const ORIGIN = "https://berjaya-company-profile.vercel.app";
 
 export function orgJsonLd() {
   return {
@@ -73,7 +73,7 @@ export function profileJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "DigitalDocument",
-    name: "Company Profile PT Berjaya Sukses Makmur 2026",
+    name: "Company Profile PT Berjaya Sukses Makmur",
     encodingFormat: "application/pdf",
     url: `${ORIGIN}/company-profile.pdf`,
     inLanguage: "id",

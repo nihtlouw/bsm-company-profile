@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function waLink(text: string, number = "6281234567890") {
+export function waLink(text: string, number = "6285697295500") {
   return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
 }
 

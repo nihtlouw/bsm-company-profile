@@ -129,7 +129,7 @@ export function CampaignHeader() {
         <Brand light />
         <div className="flex items-center gap-4">
           <a
-            href="tel:+6281234567890"
+            href={`tel:+${COMPANY.waNumber}`}
             className="hidden items-center gap-1.5 text-sm font-semibold text-paper sm:inline-flex"
           >
             <Phone className="size-4" />
@@ -199,7 +199,7 @@ export function SiteFooter() {
             </li>
             <li>
               <Link to="/kampanye-instalasi-listrik" className="hover:text-paper">
-                Survey instalasi gratis
+                Ajukan survey lokasi
               </Link>
             </li>
             <li>
@@ -343,6 +343,10 @@ function ModalBox({
           <img
             src={modal.image}
             alt={modal.title}
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = modal.fallbackImage;
+            }}
             className="mt-4 aspect-square w-full rounded-md object-cover outline outline-1 -outline-offset-1 outline-ink/10"
           />
           <p className="mt-3 text-sm text-muted">{modal.caption}</p>
@@ -373,7 +377,9 @@ function ModalSection({ title, body }: { title: string; body: string }) {
 
 export const MAIN_WA = waLink(
   "Halo, saya ingin bertanya tentang layanan Berjaya Sukses Makmur.",
+  COMPANY.waNumber,
 );
 export const CAMPAIGN_WA = waLink(
-  "Halo, saya tertarik dengan promo survey gratis instalasi listrik.",
+  "Halo, saya ingin mengajukan pertanyaan atau penawaran untuk pekerjaan elektrikal.",
+  COMPANY.waNumber,
 );
