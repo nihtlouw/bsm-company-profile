@@ -345,7 +345,7 @@ function ModalBox({
             alt={modal.title}
             onError={(event) => {
               event.currentTarget.onerror = null;
-              event.currentTarget.src = "/images/documented-work/cable-tray.svg";
+              event.currentTarget.src = modal.fallbackImage;
             }}
             className="mt-4 aspect-square w-full rounded-md object-cover outline outline-1 -outline-offset-1 outline-ink/10"
           />
