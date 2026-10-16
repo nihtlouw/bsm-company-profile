@@ -108,9 +108,9 @@ export function ProfilePage() {
       <section className="pb-8">
         <div className="mx-auto grid max-w-6xl gap-4 px-5 sm:grid-cols-3 md:px-8">
           {[
-            { title: "Untuk tender", body: "Legalitas NIB, SBU, SIUJK, SMK3 dirangkum siap dilampirkan." },
-            { title: "Untuk owner", body: "Portofolio fasilitas kritis plus cara kerja dan kurva S." },
-            { title: "Untuk vendor reg", body: "Kontak dua cabang, email, dan ajakan kerja sama di halaman terakhir." },
+            { title: "Untuk tender", body: "NIB 0220104260475, surat pengukuhan PKP, dan e-CHSEMS PT Pertamina EP terdapat pada dokumen pendukung." },
+            { title: "Untuk owner", body: "Dokumentasi pekerjaan electrical fasilitas kesehatan, jaringan perumahan, serta jaringan 20 kV SKTM–SUTM." },
+            { title: "Untuk vendor reg", body: "Alamat kantor Palembang dan Karawang serta email kantor sesuai dokumen perusahaan." },
           ].map((item) => (
             <article key={item.title} className="rounded-md border border-line bg-card p-5 shadow-card">
               <FileText className="size-4 text-brand" />
