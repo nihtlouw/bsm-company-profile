@@ -43,6 +43,22 @@
   --radius-md: 14px;
   --radius-lg: 20px;
 
+  /* CLIPYARD 3D workspace HQ */
+  --color-hq-bg: #070b14;
+  --color-hq-panel: #0d1422ee;
+  --color-hq-line: #2a3b55;
+  --color-hq-text: #e8eefb;
+  --color-hq-muted: #93a5c0;
+  --color-hq-cyan: #22d3ee;
+  --color-hq-green: #34d399;
+  --color-hq-amber: #fbbf24;
+  --color-hq-violet: #a78bfa;
+  --color-hq-pink: #f472b6;
+  --radius-hq-md: 12px;
+  --radius-hq-lg: 18px;
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --animate-pulse-soft: pulse-soft 1.8s ease-in-out infinite;
+
   --aspect-logo: 2.2 / 1;
   --aspect-sheet: 3 / 4;
   --z-index-header: 40;
@@ -108,9 +124,36 @@
   }
 }
 
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  animation: ticker-scroll 40s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .ticker-track {
+    animation: none;
   }
 
   .reveal,
