@@ -129,7 +129,7 @@ export function CampaignHeader() {
         <Brand light />
         <div className="flex items-center gap-4">
           <a
-            href="tel:+6281234567890"
+            href={`tel:+${COMPANY.waNumber}`}
             className="hidden items-center gap-1.5 text-sm font-semibold text-paper sm:inline-flex"
           >
             <Phone className="size-4" />
@@ -199,7 +199,7 @@ export function SiteFooter() {
             </li>
             <li>
               <Link to="/kampanye-instalasi-listrik" className="hover:text-paper">
-                Survey instalasi gratis
+                Ajukan survey lokasi
               </Link>
             </li>
             <li>
