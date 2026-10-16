@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { useFeedback } from "@/lib/feedback";
 import {
   CAMPAIGN_CHECKS,
-  COMPANY,
   PROJECT_TYPES,
   STATS,
   TESTIMONIALS,
