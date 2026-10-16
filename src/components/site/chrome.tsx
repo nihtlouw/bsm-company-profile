@@ -373,7 +373,9 @@ function ModalSection({ title, body }: { title: string; body: string }) {
 
 export const MAIN_WA = waLink(
   "Halo, saya ingin bertanya tentang layanan Berjaya Sukses Makmur.",
+  COMPANY.waNumber,
 );
 export const CAMPAIGN_WA = waLink(
-  "Halo, saya tertarik dengan promo survey gratis instalasi listrik.",
+  "Halo, saya ingin mengajukan pertanyaan atau penawaran untuk pekerjaan elektrikal.",
+  COMPANY.waNumber,
 );
