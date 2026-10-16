@@ -39,13 +39,12 @@ export function ProfilePage() {
       <section className="bg-navy py-14 text-on-navy md:py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-[1.15fr_0.85fr] md:px-8">
           <div>
-            <p className="text-xs font-bold tracking-wide text-brand-mist">Dokumen resmi 2026</p>
+            <p className="text-xs font-bold tracking-wide text-brand-mist">Dokumen perusahaan untuk kebutuhan vendor</p>
             <h1 className="mt-3 max-w-[16ch] text-4xl leading-tight text-paper md:text-5xl">
-              Company profile siap unduh
+              Company profile & dokumen perusahaan
             </h1>
             <p className="lead mt-4 max-w-[48ch] text-lg text-on-navy-muted">
-              Delapan halaman A4: legalitas, layanan elektrikal, portofolio rumah sakit & pabrik,
-              plus kendali proyek kurva S. Lampiran untuk tender dan vendor registration.
+              Company Profile BSM Karawang 2025 merangkum bidang mechanical, electrical, kontraktor, general supplier, civil, trading & EO, dokumentasi pekerjaan electrical, produk, dan dokumen perusahaan. Untuk dokumen tender, pastikan versi PDF publik yang dipakai telah mengeluarkan data CV pribadi.
             </p>
             <div className="mt-8 flex flex-wrap gap-3.5">
               <Button asChild>
@@ -59,7 +58,7 @@ export function ProfilePage() {
               </Button>
             </div>
             <p className="mt-4 text-sm text-on-navy-muted">
-              {COMPANY.name} · Palembang & Karawang · {PROFILE_PAGES.length} halaman
+              {COMPANY.name} · Palembang & Karawang
             </p>
           </div>
           <button
