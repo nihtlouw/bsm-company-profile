@@ -145,8 +145,8 @@ export const ABOUT_FACTS = [
 ] as const;
 
 export const OFFICES = [
-  { city: "Palembang", line: "Komp. Kedamaian Permai II-1, Kel. Bukitsangkal, Kec. Kalidoni, Kota Palembang, Sumatera Selatan 30114", phone: "0711 812 429", email: "pt.berjayasuksesmakmur@gmail.com" },
-  { city: "Karawang", line: "Sentraland Residence 2, Perumnas Bumi Telukjambe No. 09, Telukjambe Timur, Karawang, Jawa Barat 41360", phone: "0856 972 95500", email: "bsmkrw.inc@gmail.com" },
+  { city: "Palembang", line: "Komp. Kedamaian Permai II-1 / Jl. Anggrek Blok II No. 1, RT 010 RW 002, Kel. Bukitsangkal, Kec. Kalidoni, Kota Palembang, Sumatera Selatan 30114", phone: "0711 812 429", email: "pt.berjayasuksesmakmur@gmail.com" },
+  { city: "Karawang", line: "Sentraland Residence II No. 09, Perumnas Bumi Telukjambe, Telukjambe Timur, Karawang, Jawa Barat 41360", phone: "0856 972 95500", email: "bsmkrw.inc@gmail.com" },
 ] as const;
 
 // Testimonials are omitted until approved, verifiable client quotes are supplied.
@@ -168,8 +168,8 @@ export const CONTACT_INTENTS = [
   { id: "lainnya", label: "Lainnya" },
 ] as const;
 
-export const PROFILE_PDF = "/company-profile.pdf";
-export const PROFILE_FILENAME = "Company-Profile-PT-Berjaya-Sukses-Makmur.pdf";
+export const PROFILE_PDF = "/company-profile-public-safe-2025.pdf";
+export const PROFILE_FILENAME = "BSM_Company_Profile_Public_Safe_2025.pdf";
 export const PROFILE_PAGES = [
   { src: "/images/profile/p1.jpg", title: "Sampul", note: "Identitas, cabang, dan angka kunci" },
   { src: "/images/profile/p2.jpg", title: "Tentang perusahaan", note: "Fakta, visi, dan misi" },
