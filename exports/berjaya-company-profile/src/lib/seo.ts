@@ -1,6 +1,6 @@
 import { COMPANY, FAQ, OFFICES, SERVICES } from "@/lib/site-data";
 
-const ORIGIN = "https://berjayasuksesmakmur.co.id";
+const ORIGIN = "https://berjaya-company-profile.vercel.app";
 
 export function orgJsonLd() {
   return {
@@ -15,7 +15,7 @@ export function orgJsonLd() {
     email: COMPANY.email,
     telephone: `+${COMPANY.waNumber}`,
     description:
-      "Kontraktor elektrikal untuk rumah sakit, pabrik, dan gedung komersial. Instalasi listrik, panel distribusi, grounding, dan commissioning.",
+      "PT Berjaya Sukses Makmur bergerak pada bidang mechanical, electrical, kontraktor, general supplier, civil, trading & EO. Situs menampilkan dokumentasi pekerjaan elektrikal berdasarkan company profile perusahaan.",
     areaServed: ["Palembang", "Karawang", "Indonesia"],
     address: OFFICES.map((o) => ({
       "@type": "PostalAddress",
@@ -90,21 +90,15 @@ export function projectJsonLd(p: {
   id: string;
   title: string;
   subtitle: string;
-  year: number;
-  location: string;
+  sourcePage: string;
   result: string;
 }) {
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    name: `${p.title} — ${p.subtitle}`,
-    description: p.result,
-    dateCreated: String(p.year),
-    locationCreated: {
-      "@type": "Place",
-      name: p.location,
-    },
-    url: `${ORIGIN}/proyek/${p.id}`,
+    name: p.title + " — " + p.subtitle,
+    description: p.result + " Sumber: " + p.sourcePage,
+    url: ORIGIN + "/proyek/" + p.id,
     creator: {
       "@type": "GeneralContractor",
       name: COMPANY.name,
