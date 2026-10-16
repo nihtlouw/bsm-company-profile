@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ErpRouteImport } from './routes/erp'
+import { Route as HqRouteImport } from './routes/hq'
 import { Route as KampanyeInstalasiListrikRouteImport } from './routes/kampanye-instalasi-listrik'
 import { Route as ProfilPerusahaanRouteImport } from './routes/profil-perusahaan'
 import { Route as ErpIndexRouteImport } from './routes/erp/index'
@@ -32,6 +33,11 @@ const IndexRoute = IndexRouteImport.update({
 const ErpRoute = ErpRouteImport.update({
   id: '/erp',
   path: '/erp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HqRoute = HqRouteImport.update({
+  id: '/hq',
+  path: '/hq',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KampanyeInstalasiListrikRoute =
@@ -99,6 +105,7 @@ const ErpProyekIdRoute = ErpProyekIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/erp': typeof ErpRouteWithChildren
+  '/hq': typeof HqRoute
   '/kampanye-instalasi-listrik': typeof KampanyeInstalasiListrikRoute
   '/profil-perusahaan': typeof ProfilPerusahaanRoute
   '/erp/klien': typeof ErpKlienRoute
@@ -114,6 +121,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/hq': typeof HqRoute
   '/kampanye-instalasi-listrik': typeof KampanyeInstalasiListrikRoute
   '/profil-perusahaan': typeof ProfilPerusahaanRoute
   '/erp/klien': typeof ErpKlienRoute
@@ -130,6 +138,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/erp': typeof ErpRouteWithChildren
+  '/hq': typeof HqRoute
   '/kampanye-instalasi-listrik': typeof KampanyeInstalasiListrikRoute
   '/profil-perusahaan': typeof ProfilPerusahaanRoute
   '/erp/klien': typeof ErpKlienRoute
@@ -148,6 +157,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/erp'
+    | '/hq'
     | '/kampanye-instalasi-listrik'
     | '/profil-perusahaan'
     | '/erp/klien'
@@ -163,6 +173,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/hq'
     | '/kampanye-instalasi-listrik'
     | '/profil-perusahaan'
     | '/erp/klien'
@@ -178,6 +189,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/erp'
+    | '/hq'
     | '/kampanye-instalasi-listrik'
     | '/profil-perusahaan'
     | '/erp/klien'
@@ -195,6 +207,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ErpRoute: typeof ErpRouteWithChildren
+  HqRoute: typeof HqRoute
   KampanyeInstalasiListrikRoute: typeof KampanyeInstalasiListrikRoute
   ProfilPerusahaanRoute: typeof ProfilPerusahaanRoute
   LayananSlugRoute: typeof LayananSlugRoute
@@ -215,6 +228,13 @@ declare module '@tanstack/react-router' {
       path: '/erp'
       fullPath: '/erp'
       preLoaderRoute: typeof ErpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hq': {
+      id: '/hq'
+      path: '/hq'
+      fullPath: '/hq'
+      preLoaderRoute: typeof HqRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kampanye-instalasi-listrik': {
@@ -341,6 +361,7 @@ const ErpRouteWithChildren = ErpRoute._addFileChildren(ErpRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ErpRoute: ErpRouteWithChildren,
+  HqRoute: HqRoute,
   KampanyeInstalasiListrikRoute: KampanyeInstalasiListrikRoute,
   ProfilPerusahaanRoute: ProfilPerusahaanRoute,
   LayananSlugRoute: LayananSlugRoute,
