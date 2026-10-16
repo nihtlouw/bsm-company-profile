@@ -40,7 +40,7 @@ export function PageHero({
         <p className="lead mt-4 max-w-[52ch] text-lg text-on-navy-muted">{lead}</p>
         <div className="mt-8 flex flex-wrap gap-3.5">
           <Button asChild>
-            <Link to="/kampanye-instalasi-listrik">Minta survey gratis</Link>
+            <Link to="/kampanye-instalasi-listrik">Ajukan survey lokasi</Link>
           </Button>
           <Button asChild variant="outline-light">
             <Link to="/profil-perusahaan">Company profile</Link>
