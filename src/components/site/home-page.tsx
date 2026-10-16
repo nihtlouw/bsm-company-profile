@@ -63,9 +63,7 @@ export function HomePage() {
           <Link to="/kampanye-instalasi-listrik">Ajukan survey lokasi</Link>
         </Button>
         <Button asChild variant="outline-light">
-          <a href={PROFILE_PDF} download={PROFILE_FILENAME}>
-            Unduh company profile
-          </a>
+          <Link to="/profil-perusahaan">Company profile & dokumen</Link>
         </Button>
       </CtaBand>
       <Portfolio />
@@ -392,9 +390,7 @@ function Legalitas() {
         </Reveal>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild>
-            <a href={PROFILE_PDF} download={PROFILE_FILENAME}>
-              Unduh company profile
-            </a>
+            <Link to="/profil-perusahaan">Company profile & dokumen</Link>
           </Button>
           <Button asChild variant="outline">
             <a href="#contact">Minta salinan legalitas</a>
@@ -587,13 +583,12 @@ function Contact() {
                 {COMPANY.phoneDisplay}
               </p>
             </div>
-            <a
-              href={PROFILE_PDF}
-              download={PROFILE_FILENAME}
+            <Link
+              to="/profil-perusahaan"
               className="mt-6 inline-flex text-sm font-bold text-paper underline-offset-4 hover:underline"
             >
-              Unduh company profile PDF →
-            </a>
+              Company profile & dokumen pendukung →
+            </Link>
           </div>
         </Reveal>
         <Reveal>
