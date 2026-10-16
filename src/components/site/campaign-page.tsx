@@ -59,7 +59,7 @@ export function CampaignPage({
         <div className="relative mx-auto grid max-w-6xl items-start gap-11 px-5 md:grid-cols-[1.1fr_0.9fr] md:px-8">
           <div>
             <span className="mb-4 inline-block rounded-md bg-brand px-3 py-1.5 text-xs font-bold text-paper">
-              Promo survey lokasi
+              Permintaan survey lokasi
             </span>
             <h1 className="text-4xl leading-tight md:text-5xl">
               Survey instalasi listrik{" "}
@@ -93,7 +93,7 @@ export function CampaignPage({
             noValidate
             className="rounded-lg bg-card p-6 text-ink shadow-[0_25px_60px_-20px_rgba(0,0,0,0.5)]"
           >
-            <h3 className="text-[1.05rem]">Minta survey & penawaran</h3>
+            <h3 className="text-[1.05rem]">Ajukan survey & penawaran</h3>
             <p className="mt-1 mb-4 text-sm text-muted">
               Isi singkat, lalu kirim pesan melalui WhatsApp.
             </p>

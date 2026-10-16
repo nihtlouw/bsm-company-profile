@@ -8,7 +8,6 @@ import { SeoHead } from "@/lib/seo-head";
 import {
   CATEGORY_LABEL,
   COMPANY,
-  PROFILE_FILENAME,
   PROFILE_PDF,
   PROJECTS,
 } from "@/lib/site-data";
@@ -35,7 +34,7 @@ export function ProjectRoute() {
     <MarketingShell>
       <SeoHead
         title={`${p.title} — ${p.subtitle} | ${COMPANY.short}`}
-        description={`${p.subtitle} (${p.year}, ${p.location}). ${p.result}`}
+        description={`${p.subtitle}. ${p.result}`}
       />
       <main>
         <JsonLd data={projectJsonLd(p)} />
@@ -46,7 +45,7 @@ export function ProjectRoute() {
           ])}
         />
         <PageHero
-          eyebrow={`${CATEGORY_LABEL[p.category]} · ${p.year} · ${p.location}`}
+          eyebrow={`${CATEGORY_LABEL[p.category]} · ${p.sourcePage}`}
           title={`${p.title} — ${p.subtitle}`}
           lead={p.background}
         />
@@ -54,29 +53,25 @@ export function ProjectRoute() {
           <article>
             <img
               src={p.image}
-              alt={`${p.title} — ${p.subtitle}`}
+              alt={p.title + " — " + p.subtitle}
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.src = p.fallbackImage;
+              }}
               className="aspect-video w-full rounded-md object-cover outline outline-1 -outline-offset-1 outline-ink/10"
             />
             <h2 className="mt-8 text-lg">Latar belakang</h2>
             <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{p.background}</p>
             <h2 className="mt-6 text-lg">Solusi</h2>
             <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{p.solution}</p>
-            <h2 className="mt-6 text-lg">Hasil</h2>
+            <h2 className="mt-6 text-lg">Catatan dokumentasi</h2>
             <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{p.result}</p>
+            <p className="mt-3 text-xs leading-relaxed text-muted">Sumber: {p.sourcePage}. Nama fasilitas, tanggal pelaksanaan, nilai kontrak, dan hasil terukur tidak disimpulkan bila tidak tercantum pada halaman sumber.</p>
           </article>
           <aside className="rounded-md border border-line bg-card p-5 shadow-card">
             <p className="text-xs font-bold text-navy-bright">{CATEGORY_LABEL[p.category]}</p>
             <h2 className="mt-2 text-base">{p.title}</h2>
-            <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
-              <div>
-                <dt className="text-xs font-bold text-muted">Tahun</dt>
-                <dd className="mt-0.5 font-semibold">{p.year}</dd>
-              </div>
-              <div>
-                <dt className="text-xs font-bold text-muted">Lokasi</dt>
-                <dd className="mt-0.5 font-semibold">{p.location}</dd>
-              </div>
-            </dl>
+            <p className="mt-3 text-sm leading-relaxed text-muted">{p.sourcePage}</p>
             <p className="mt-4 text-xs font-bold text-muted">Lingkup</p>
             <ul className="mt-2 space-y-1.5 text-sm">
               {p.scope.map((item) => (
@@ -87,21 +82,21 @@ export function ProjectRoute() {
               ))}
             </ul>
             <p className="mt-4 text-sm text-muted">
-              Ringkasan untuk tender. Company profile memuat portofolio lengkap.
+              Ringkasan ini merujuk pada dokumentasi sumber. Informasi yang tidak tercantum pada halaman sumber tidak diasumsikan.
             </p>
             <Button asChild className="mt-5" size="block">
-              <Link to="/kampanye-instalasi-listrik">Minta survey serupa</Link>
+              <Link to="/kampanye-instalasi-listrik">Ajukan diskusi proyek</Link>
             </Button>
             <Button asChild variant="outline" className="mt-3" size="block">
-              <a href={PROFILE_PDF} download={PROFILE_FILENAME}>
-                Unduh company profile
+              <a href={PROFILE_PDF}>
+                Minta company profile via email
               </a>
             </Button>
           </aside>
         </section>
         <CtaBand
           title="Punya fasilitas dengan kebutuhan serupa?"
-          note="Kirim brief atau minta survey lokasi gratis."
+          note="Kirim brief melalui WhatsApp atau email untuk mengonfirmasi ruang lingkup pekerjaan."
         >
           <Button asChild>
             <a href="/#contact">Kirim brief</a>

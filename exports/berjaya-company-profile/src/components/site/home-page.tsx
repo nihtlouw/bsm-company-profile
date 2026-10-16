@@ -12,9 +12,9 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useState, type FormEvent, type ReactNode } from "react";
 import { CtaBand } from "@/components/site/cta";
-import { ElectricalPanel } from "@/components/site/electrical-panel";
+
 import { FaqSection } from "@/components/site/faq-section";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
@@ -32,7 +32,6 @@ import {
   GALLERY,
   HOW_IT_WORKS,
   OFFICES,
-  PROFILE_FILENAME,
   PROFILE_PDF,
   PROJECTS,
   SERVICES,
@@ -41,7 +40,7 @@ import {
   type ProjectCategory,
 } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
-import { saveWebInquiry } from "@/lib/web-leads";
+
 
 const SERVICE_ICONS = [Zap, Cable, Shield, Wrench] as const;
 const DOC_ICONS = [Landmark, BadgeCheck, FileCheck, ClipboardList] as const;
@@ -58,15 +57,13 @@ export function HomePage() {
       <Services />
       <CtaBand
         title="Siap tender atau survey lokasi?"
-        note="Unduh company profile untuk kelengkapan vendor, atau minta survey gratis untuk proyek instalasi baru."
+        note="Lihat dokumentasi pekerjaan dan informasi legalitas, atau kirim brief melalui WhatsApp untuk ditindaklanjuti."
       >
         <Button asChild>
-          <Link to="/kampanye-instalasi-listrik">Minta survey gratis</Link>
+          <Link to="/kampanye-instalasi-listrik">Ajukan survey lokasi</Link>
         </Button>
         <Button asChild variant="outline-light">
-          <a href={PROFILE_PDF} download={PROFILE_FILENAME}>
-            Unduh company profile
-          </a>
+          <Link to="/profil-perusahaan">Company profile & dokumen</Link>
         </Button>
       </CtaBand>
       <Portfolio />
@@ -74,7 +71,7 @@ export function HomePage() {
       <Gallery />
       <About />
       <Clients />
-      <Testimonials />
+      {TESTIMONIALS.length > 0 ? <Testimonials /> : null}
       <FaqSection />
       <Contact />
     </main>
@@ -111,26 +108,27 @@ function Hero() {
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 md:grid-cols-[1.1fr_0.9fr] md:px-8">
         <Reveal>
           <span className="mb-5 inline-flex items-center rounded-full border border-brand/40 bg-brand/15 px-3.5 py-1.5 text-xs font-bold tracking-wide text-brand-mist">
-            SEJAK {COMPANY.founded} · PALEMBANG & KARAWANG
+            INFORMASI DOKUMEN · PALEMBANG & KARAWANG
           </span>
           <h1 className="max-w-[16ch] text-4xl leading-tight text-paper md:text-5xl">
-            Kontraktor listrik rumah sakit, pabrik, dan gedung
+            Kontraktor listrik rumah sakit, jaringan perumahan, dan tegangan menengah
           </h1>
           <p className="lead mt-4 max-w-[46ch] text-lg text-on-navy-muted">
-            Instalasi elektrikal sesuai PUIL/SNI — panel, tray, grounding, hingga commissioning.
-            Survey lokasi gratis untuk proyek baru.
+            Dokumentasi perusahaan memuat instalasi electrical fasilitas kesehatan, jaringan electrical
+            perumahan, serta jaringan 20 kV SKTM/SUTM. Lingkup proyek dikonfirmasi berdasarkan
+            spesifikasi dan dokumen yang disepakati.
           </p>
           <div className="mt-8 flex flex-wrap gap-3.5">
             <Button asChild>
-              <Link to="/kampanye-instalasi-listrik">Minta survey gratis</Link>
+              <Link to="/kampanye-instalasi-listrik">Ajukan survey lokasi</Link>
             </Button>
             <Button asChild variant="outline-light">
-              <Link to="/profil-perusahaan">Company profile</Link>
+              <Link to="/profil-perusahaan">Company profile & dokumen</Link>
             </Button>
           </div>
           <p className="mt-4 text-sm text-on-navy-muted">
             <a href="#projects" className="font-semibold text-paper underline-offset-4 hover:underline">
-              Lihat portofolio
+              Lihat dokumentasi pekerjaan
             </a>
             {" · "}
             <a href="#contact" className="font-semibold text-paper underline-offset-4 hover:underline">
@@ -139,7 +137,22 @@ function Hero() {
           </p>
         </Reveal>
         <Reveal>
-          <ElectricalPanel />
+          <figure className="overflow-hidden rounded-lg border border-paper/15 bg-navy-mid shadow-panel">
+            <img
+              src="/images/documented-work/medium-voltage-switchgear.webp"
+              alt="Dokumentasi panel dan cubicle tegangan menengah dari Company Profile BSM Karawang 2025 halaman 31"
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.src = "/images/documented-work/mv-switchgear.svg";
+              }}
+              className="aspect-[4/3] w-full object-cover"
+              fetchPriority="high"
+            />
+            <figcaption className="flex flex-wrap items-center justify-between gap-2 border-t border-paper/10 px-4 py-3 text-xs text-on-navy-muted">
+              <span className="font-semibold text-paper">Dokumentasi pekerjaan elektrikal</span>
+              <span>Company Profile BSM Karawang 2025 · hlm. 31</span>
+            </figcaption>
+          </figure>
         </Reveal>
       </div>
     </section>
@@ -152,57 +165,12 @@ function StatsStrip() {
       <div className="mx-auto grid max-w-6xl grid-cols-2 px-5 py-8 text-center md:grid-cols-4 md:px-8">
         {STATS.map((s) => (
           <div key={s.label} className="py-2">
-            <p className="text-3xl font-extrabold text-navy-mid">
-              <StatNum target={s.value} suffix={s.suffix} />
-            </p>
-            <p className="mt-1 text-xs text-muted">{s.label}</p>
+            <p className="text-xl font-extrabold text-navy-mid sm:text-2xl">{s.value}</p>
+            <p className="mt-1 text-xs leading-relaxed text-muted">{s.label}</p>
           </div>
         ))}
       </div>
     </section>
-  );
-}
-
-function StatNum({ target, suffix }: { target: number; suffix: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const [val, setVal] = useState(0);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    let raf = 0;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        io.disconnect();
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          setVal(target);
-          return;
-        }
-        const t0 = performance.now();
-        const dur = 1200;
-        const step = (ts: number) => {
-          const p = Math.min((ts - t0) / dur, 1);
-          setVal(Math.floor(p * target));
-          if (p < 1) raf = requestAnimationFrame(step);
-          else setVal(target);
-        };
-        raf = requestAnimationFrame(step);
-      },
-      { threshold: 0.4 },
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      cancelAnimationFrame(raf);
-    };
-  }, [target]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {val}
-      {suffix}
-    </span>
   );
 }
 
@@ -223,7 +191,7 @@ function VendorTrust() {
           ))}
         </div>
         <Link to="/profil-perusahaan" className="text-xs font-bold text-navy-bright">
-          Company profile PDF →
+          Company profile & dokumen →
         </Link>
       </div>
     </section>
@@ -316,41 +284,40 @@ function Services() {
 function Portfolio() {
   const [filter, setFilter] = useState<"semua" | ProjectCategory>("semua");
   const openModal = useFeedback((s) => s.openModal);
-
   return (
     <section id="projects" className="py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <SectionHead
-          title="Portofolio proyek elektrikal"
-          note="Studi kasus dari fasilitas kesehatan, pabrik, dan gedung komersial."
+          title="Dokumentasi pekerjaan elektrikal"
+          note="Kategori dan foto merujuk pada Company Profile BSM Karawang 2025, halaman 29–32. Detail tanggal, nilai kontrak, nama klien per pekerjaan, dan hasil terukur tidak diasumsikan."
         />
         <div className="mb-6 flex flex-wrap gap-2.5">
-          {CATEGORIES.map((c) => (
+          {CATEGORIES.map((item) => (
             <button
-              key={c.id}
+              key={item.id}
               type="button"
-              data-filter={c.id}
-              onClick={() => setFilter(c.id)}
+              onClick={() => setFilter(item.id)}
               className={cn(
                 "h-11 rounded-full border border-line bg-card px-4 text-sm font-semibold text-muted",
-                filter === c.id && "border-navy-mid bg-navy-mid text-paper",
+                filter === item.id && "border-navy-mid bg-navy-mid text-paper",
               )}
             >
-              {c.label}
+              {item.label}
             </button>
           ))}
         </div>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.filter((p) => filter === "semua" || p.category === filter).map((p) => (
-            <article
-              key={p.id}
-              className="overflow-hidden rounded-md border border-line bg-card shadow-card transition-transform duration-200 hover:-translate-y-1 hover:shadow-card-hover"
-            >
-              <Link to={`/proyek/${p.id}`} className="block">
-                <div className="relative h-40 overflow-hidden bg-navy">
+            <article key={p.id} className="overflow-hidden rounded-md border border-line bg-card shadow-card transition-transform duration-200 hover:-translate-y-1 hover:shadow-card-hover">
+              <Link to={"/proyek/" + p.id} className="block">
+                <div className="relative h-44 overflow-hidden bg-navy">
                   <img
                     src={p.image}
-                    alt={`${p.title} — ${p.subtitle}`}
+                    alt={p.title + " — " + p.subtitle}
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = p.fallbackImage;
+                    }}
                     className="size-full object-cover outline outline-1 -outline-offset-1 outline-ink/10"
                   />
                 </div>
@@ -359,26 +326,22 @@ function Portfolio() {
                 <p className="text-xs font-bold text-navy-bright">{CATEGORY_LABEL[p.category]}</p>
                 <h3 className="mt-1 text-base">{p.title}</h3>
                 <p className="mt-1 text-sm text-muted">{p.subtitle}</p>
+                <p className="mt-2 text-xs text-muted">{p.sourcePage}</p>
                 <div className="mt-3 flex flex-wrap gap-3">
-                  <Link
-                    to={`/proyek/${p.id}`}
-                    className="text-sm font-bold text-navy-bright"
-                  >
-                    Halaman proyek →
+                  <Link to={"/proyek/" + p.id} className="text-sm font-bold text-navy-bright">
+                    Detail rujukan →
                   </Link>
                   <button
                     type="button"
                     className="text-sm font-bold text-muted"
-                    onClick={() =>
-                      openModal({
-                        kind: "case",
-                        title: `${p.title} — ${p.subtitle}`,
-                        category: CATEGORY_LABEL[p.category],
-                        background: p.background,
-                        solution: p.solution,
-                        result: p.result,
-                      })
-                    }
+                    onClick={() => openModal({
+                      kind: "case",
+                      title: p.title + " — " + p.subtitle,
+                      category: CATEGORY_LABEL[p.category],
+                      background: p.background,
+                      solution: p.solution,
+                      result: p.result,
+                    })}
                   >
                     Ringkas
                   </button>
@@ -433,8 +396,8 @@ function Legalitas() {
         </Reveal>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild>
-            <a href={PROFILE_PDF} download={PROFILE_FILENAME}>
-              Unduh company profile
+            <a href={PROFILE_PDF} >
+              Minta company profile via email
             </a>
           </Button>
           <Button asChild variant="outline">
@@ -451,25 +414,27 @@ function Gallery() {
   return (
     <section id="galeri" className="py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <SectionHead title="Galeri" note="Cuplikan pekerjaan di ruang panel, tray, dan gedung." />
+        <SectionHead title="Dokumentasi foto" note="Foto dirujuk ke halaman sumber company profile. Jika berkas foto belum tersedia, tampilan cadangan akan digunakan." />
         <Reveal stagger className="grid grid-cols-2 gap-3.5 md:grid-cols-3">
           {GALLERY.map((g) => (
             <button
               key={g.id}
               type="button"
-              onClick={() =>
-                openModal({
-                  kind: "gallery",
-                  title: g.title,
-                  image: g.image,
-                  caption: g.caption,
-                })
-              }
+              onClick={() => openModal({
+                kind: "gallery",
+                title: g.title,
+                image: g.image,
+                caption: g.caption,
+              })}
               className="relative aspect-square overflow-hidden rounded-[14px] bg-navy"
             >
               <img
                 src={g.image}
                 alt={g.title}
+                onError={(event) => {
+                  event.currentTarget.onerror = null;
+                  event.currentTarget.src = g.fallbackImage;
+                }}
                 className="size-full object-cover outline outline-1 -outline-offset-1 outline-ink/10 transition-transform duration-200 hover:scale-105"
               />
               <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-navy/85 to-transparent px-2.5 pt-8 pb-2.5 text-left text-xs font-semibold text-paper">
@@ -608,10 +573,18 @@ function Contact() {
     setErrors(next);
     if (Object.keys(next).length) return;
 
-    saveWebInquiry({ ...data, source: "contact_form" });
+    const brief = [
+      "Permintaan proyek melalui situs PT Berjaya Sukses Makmur",
+      "Nama: " + data.name,
+      "Email: " + data.email,
+      "Perusahaan: " + data.company,
+      "Keperluan: " + data.type,
+      "Pesan: " + data.message,
+    ].join("\n");
+    window.open("https://wa.me/" + COMPANY.waNumber + "?text=" + encodeURIComponent(brief), "_blank", "noopener,noreferrer");
     form.reset();
     setSuccess(true);
-    showToast("Pesan terkirim. Tim kami akan menghubungi Anda dalam 1×24 jam.");
+    showToast("Brief siap. Periksa pesan lalu tekan Kirim di WhatsApp.");
   }
 
   return (
@@ -619,80 +592,53 @@ function Contact() {
       <div className="mx-auto grid max-w-6xl gap-11 px-5 md:grid-cols-[1fr_1.1fr] md:px-8">
         <Reveal>
           <div className="rounded-lg bg-navy p-7 text-on-navy">
-            <h2 className="text-lg text-paper">Kirim brief proyek</h2>
+            <h2 className="text-lg text-paper">Kontak kantor & brief proyek</h2>
             <p className="mt-2 text-sm text-on-navy-muted">
-              Kami merespons dalam 1×24 jam pada hari kerja. Untuk tender, lampirkan unduhan
-              company profile di paket vendor Anda.
+              Formulir menyiapkan ringkasan brief di WhatsApp. Pesan baru terkirim setelah Anda memeriksa dan menekan tombol Kirim di WhatsApp.
             </p>
-            {OFFICES.map((o) => (
-              <div key={o.city} className="mt-5 flex gap-3">
+            {OFFICES.map((office) => (
+              <div key={office.city} className="mt-5 flex gap-3">
                 <Building2 className="mt-0.5 size-4 shrink-0 text-brand-mist" />
-                <p className="text-sm text-on-navy-muted">
-                  <strong className="mb-0.5 block text-sm text-paper">{o.city}</strong>
-                  {o.line}
-                </p>
+                <div className="text-sm text-on-navy-muted">
+                  <strong className="mb-0.5 block text-sm text-paper">{office.city}</strong>
+                  <p>{office.line}</p>
+                  <p className="mt-1">Telepon: {office.phone}</p>
+                  <a href={"mailto:" + office.email} className="mt-1 inline-block underline-offset-4 hover:underline">{office.email}</a>
+                </div>
               </div>
             ))}
-            <div className="mt-5 flex gap-3">
-              <Zap className="mt-0.5 size-4 shrink-0 text-brand-mist" />
-              <p className="text-sm text-on-navy-muted">
-                <strong className="mb-0.5 block text-sm text-paper">Email & telepon</strong>
-                {COMPANY.email}
-                <br />
-                {COMPANY.phoneDisplay}
-              </p>
-            </div>
-            <a
-              href={PROFILE_PDF}
-              download={PROFILE_FILENAME}
-              className="mt-6 inline-flex text-sm font-bold text-paper underline-offset-4 hover:underline"
-            >
-              Unduh company profile PDF →
+            <a href={PROFILE_PDF} className="mt-6 inline-flex text-sm font-bold text-paper underline-offset-4 hover:underline">
+              Minta company profile via email →
             </a>
           </div>
         </Reveal>
         <Reveal>
-          <form
-            onSubmit={onSubmit}
-            className="rounded-lg border border-line bg-card p-7 shadow-card"
-            noValidate
-          >
+          <form onSubmit={onSubmit} className="rounded-lg border border-line bg-card p-7 shadow-card" noValidate>
             {success ? (
               <div className="mb-4 rounded-xl border border-success-line bg-success-bg p-4 text-sm text-success">
-                Pesan terkirim. Tim kami akan menghubungi Anda dalam 1×24 jam.
+                Brief sudah disiapkan. Periksa isi pesan dan tekan Kirim di WhatsApp untuk mengirimkannya.
               </div>
             ) : null}
             <Field id="cName" name="name" label="Nama Lengkap" error={errors.name} />
             <Field id="cEmail" name="email" label="Email" type="email" error={errors.email} />
             <Field id="cCompany" name="company" label="Perusahaan" error={errors.company} />
             <div className="mb-4">
-              <label htmlFor="cIntent" className="mb-1.5 block text-xs font-bold">
-                Keperluan
-              </label>
+              <label htmlFor="cIntent" className="mb-1.5 block text-xs font-bold">Keperluan</label>
               <select
                 id="cIntent"
                 name="intent"
                 defaultValue=""
-                className={cn(
-                  "w-full rounded-[10px] border-[1.5px] border-line bg-page px-3.5 py-3 text-sm",
-                  errors.intent && "border-brand",
-                )}
+                className={cn("w-full rounded-[10px] border-[1.5px] border-line bg-page px-3.5 py-3 text-sm", errors.intent && "border-brand")}
               >
-                <option value="" disabled>
-                  Pilih keperluan
-                </option>
+                <option value="" disabled>Pilih keperluan</option>
                 {CONTACT_INTENTS.map((item) => (
-                  <option key={item.id} value={item.label}>
-                    {item.label}
-                  </option>
+                  <option key={item.id} value={item.label}>{item.label}</option>
                 ))}
               </select>
               {errors.intent ? <p className="mt-1 text-xs text-brand">{errors.intent}</p> : null}
             </div>
             <Field id="cMessage" name="message" label="Pesan" textarea error={errors.message} />
-            <Button type="submit" size="block">
-              Kirim brief
-            </Button>
+            <Button type="submit" size="block">Lanjutkan ke WhatsApp</Button>
           </form>
         </Reveal>
       </div>

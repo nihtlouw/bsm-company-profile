@@ -14,7 +14,6 @@ import {
 } from "lucide-react";
 import { useState, type FormEvent, type ReactNode } from "react";
 import { CtaBand } from "@/components/site/cta";
-import { ElectricalPanel } from "@/components/site/electrical-panel";
 import { FaqSection } from "@/components/site/faq-section";
 import { Reveal } from "@/components/site/reveal";
 import { Button } from "@/components/ui/button";
@@ -32,8 +31,6 @@ import {
   GALLERY,
   HOW_IT_WORKS,
   OFFICES,
-  PROFILE_FILENAME,
-  PROFILE_PDF,
   PROJECTS,
   SERVICES,
   STATS,
@@ -57,15 +54,13 @@ export function HomePage() {
       <Services />
       <CtaBand
         title="Siap tender atau survey lokasi?"
-        note="Unduh company profile untuk kelengkapan vendor, atau minta survey gratis untuk proyek instalasi baru."
+        note="Lihat dokumentasi pekerjaan dan dokumen perusahaan, atau kirim brief untuk kebutuhan instalasi baru."
       >
         <Button asChild>
           <Link to="/kampanye-instalasi-listrik">Ajukan survey lokasi</Link>
         </Button>
         <Button asChild variant="outline-light">
-          <a href={PROFILE_PDF} download={PROFILE_FILENAME}>
-            Unduh company profile
-          </a>
+          <Link to="/profil-perusahaan">Company profile & dokumen</Link>
         </Button>
       </CtaBand>
       <Portfolio />
@@ -115,12 +110,13 @@ function Hero() {
             Kontraktor listrik rumah sakit, pabrik, dan gedung
           </h1>
           <p className="lead mt-4 max-w-[46ch] text-lg text-on-navy-muted">
-            Instalasi elektrikal sesuai PUIL/SNI — panel, tray, grounding, hingga commissioning.
-            Survey lokasi gratis untuk proyek baru.
+            Dokumentasi perusahaan memuat pekerjaan instalasi electrical fasilitas kesehatan, jaringan
+            electrical perumahan, serta jaringan 20 kV SKTM/SUTM. Lingkup proyek dikonfirmasi sesuai
+            spesifikasi dan dokumen yang disepakati.
           </p>
           <div className="mt-8 flex flex-wrap gap-3.5">
             <Button asChild>
-              <Link to="/kampanye-instalasi-listrik">Minta survey gratis</Link>
+              <Link to="/kampanye-instalasi-listrik">Ajukan survey lokasi</Link>
             </Button>
             <Button asChild variant="outline-light">
               <Link to="/profil-perusahaan">Company profile</Link>
@@ -137,7 +133,22 @@ function Hero() {
           </p>
         </Reveal>
         <Reveal>
-          <ElectricalPanel />
+          <figure className="overflow-hidden rounded-lg border border-paper/15 bg-navy-mid shadow-panel">
+            <img
+              src="/images/documented-work/medium-voltage-switchgear.webp"
+              alt="Foto dokumentasi panel dan cubicle tegangan menengah dari Company Profile BSM Karawang 2025 halaman 31"
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.src = "/images/documented-work/mv-switchgear.svg";
+              }}
+              className="aspect-[4/3] w-full object-cover"
+              fetchPriority="high"
+            />
+            <figcaption className="flex flex-wrap items-center justify-between gap-2 border-t border-paper/10 px-4 py-3 text-xs text-on-navy-muted">
+              <span className="font-semibold text-paper">Dokumentasi pekerjaan elektrikal</span>
+              <span>Company Profile BSM Karawang 2025 · hlm. 31</span>
+            </figcaption>
+          </figure>
         </Reveal>
       </div>
     </section>
@@ -176,7 +187,7 @@ function VendorTrust() {
           ))}
         </div>
         <Link to="/profil-perusahaan" className="text-xs font-bold text-navy-bright">
-          Company profile PDF →
+          Company profile & dokumen →
         </Link>
       </div>
     </section>
@@ -392,9 +403,7 @@ function Legalitas() {
         </Reveal>
         <div className="mt-6 flex flex-wrap gap-3">
           <Button asChild>
-            <a href={PROFILE_PDF} download={PROFILE_FILENAME}>
-              Unduh company profile
-            </a>
+            <Link to="/profil-perusahaan">Company profile & dokumen</Link>
           </Button>
           <Button asChild variant="outline">
             <a href="#contact">Minta salinan legalitas</a>
@@ -587,13 +596,12 @@ function Contact() {
                 {COMPANY.phoneDisplay}
               </p>
             </div>
-            <a
-              href={PROFILE_PDF}
-              download={PROFILE_FILENAME}
+            <Link
+              to="/profil-perusahaan"
               className="mt-6 inline-flex text-sm font-bold text-paper underline-offset-4 hover:underline"
             >
-              Unduh company profile PDF →
-            </a>
+              Company profile & dokumen pendukung →
+            </Link>
           </div>
         </Reveal>
         <Reveal>
