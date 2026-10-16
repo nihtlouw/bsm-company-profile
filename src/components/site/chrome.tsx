@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowLeft, Boxes, Menu, Phone, X } from "lucide-react";
+import { ArrowLeft, Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useFeedback, type ModalState } from "@/lib/feedback";
@@ -63,12 +63,6 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-3">
           <Button asChild variant="outline" size="sm" className="hidden lg:inline-flex">
-            <Link to="/hq">
-              <Boxes className="size-4" />
-              AI Studio 3D
-            </Link>
-          </Button>
-          <Button asChild variant="outline" size="sm" className="hidden lg:inline-flex">
             <Link to="/profil-perusahaan">Company profile</Link>
           </Button>
           <Button asChild size="sm" className="hidden lg:inline-flex">
@@ -111,9 +105,6 @@ export function SiteHeader() {
             onClick={() => setOpen(false)}
           >
             Company profile
-          </Link>
-          <Link to="/hq" className="border-b border-line py-3 font-semibold" onClick={() => setOpen(false)}>
-            AI Studio 3D
           </Link>
           <Button asChild variant="outline" className="mt-2">
             <Link to="/profil-perusahaan" onClick={() => setOpen(false)}>
