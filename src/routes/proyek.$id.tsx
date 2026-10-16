@@ -3,7 +3,7 @@ import { CtaBand } from "@/components/site/cta";
 import { MarketingShell, PageHero } from "@/components/site/inner-page";
 import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/lib/json-ld";
-import { breadcrumbJsonLd, projectJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import {
   CATEGORY_LABEL,
   COMPANY,
@@ -52,7 +52,6 @@ function ProjectRoute() {
   return (
     <MarketingShell>
       <main>
-        <JsonLd data={projectJsonLd(p)} />
         <JsonLd
           data={breadcrumbJsonLd([
             { name: "Beranda", path: "/" },
@@ -60,7 +59,7 @@ function ProjectRoute() {
           ])}
         />
         <PageHero
-          eyebrow={`${CATEGORY_LABEL[p.category]} · ${p.year} · ${p.location}`}
+          eyebrow={`${CATEGORY_LABEL[p.category]} · ${p.sourcePage}`}
           title={`${p.title} — ${p.subtitle}`}
           lead={p.background}
         />
@@ -68,28 +67,22 @@ function ProjectRoute() {
           <article>
             <img
               src={p.image}
-              alt={`${p.title} — ${p.subtitle}`}
+              alt={`${p.title} — ilustrasi lingkup pekerjaan`}
               className="aspect-video w-full rounded-md object-cover outline outline-1 -outline-offset-1 outline-ink/10"
             />
-            <h2 className="mt-8 text-lg">Latar belakang</h2>
+            <h2 className="mt-8 text-lg">Rujukan dokumen</h2>
             <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{p.background}</p>
-            <h2 className="mt-6 text-lg">Solusi</h2>
+            <h2 className="mt-6 text-lg">Yang terlihat pada sumber</h2>
             <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{p.solution}</p>
-            <h2 className="mt-6 text-lg">Hasil</h2>
+            <h2 className="mt-6 text-lg">Catatan</h2>
             <p className="mt-2 text-[0.95rem] leading-relaxed text-muted">{p.result}</p>
           </article>
           <aside className="rounded-md border border-line bg-card p-5 shadow-card">
             <p className="text-xs font-bold text-navy-bright">{CATEGORY_LABEL[p.category]}</p>
             <h2 className="mt-2 text-base">{p.title}</h2>
-            <dl className="mt-4 grid grid-cols-2 gap-3 text-sm">
-              <div>
-                <dt className="text-xs font-bold text-muted">Tahun</dt>
-                <dd className="mt-0.5 font-semibold">{p.year}</dd>
-              </div>
-              <div>
-                <dt className="text-xs font-bold text-muted">Lokasi</dt>
-                <dd className="mt-0.5 font-semibold">{p.location}</dd>
-              </div>
+            <dl className="mt-4 grid grid-cols-1 gap-3 text-sm">
+              <div><dt className="text-xs font-bold text-muted">Sumber</dt><dd className="mt-0.5 font-semibold">{p.sourcePage}</dd></div>
+              <div><dt className="text-xs font-bold text-muted">Kategori</dt><dd className="mt-0.5 font-semibold">Dokumentasi pekerjaan</dd></div>
             </dl>
             <p className="mt-4 text-xs font-bold text-muted">Lingkup</p>
             <ul className="mt-2 space-y-1.5 text-sm">
