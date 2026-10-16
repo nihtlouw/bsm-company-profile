@@ -7,9 +7,8 @@
   <url><loc>https://berjaya-company-profile.vercel.app/layanan/panel</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://berjaya-company-profile.vercel.app/layanan/grounding</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://berjaya-company-profile.vercel.app/layanan/commissioning</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://berjaya-company-profile.vercel.app/proyek/rspad</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://berjaya-company-profile.vercel.app/proyek/factory</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://berjaya-company-profile.vercel.app/proyek/commercial</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://berjaya-company-profile.vercel.app/proyek/puskesmas</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://berjaya-company-profile.vercel.app/proyek/elektronik</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://berjaya-company-profile.vercel.app/proyek/hospital-electrical</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://berjaya-company-profile.vercel.app/proyek/residential-electrical</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://berjaya-company-profile.vercel.app/proyek/mv-network</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://berjaya-company-profile.vercel.app/proyek/transformer-panels</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
