@@ -60,7 +60,7 @@ export function HomePage() {
         note="Unduh company profile untuk kelengkapan vendor, atau minta survey gratis untuk proyek instalasi baru."
       >
         <Button asChild>
-          <Link to="/kampanye-instalasi-listrik">Minta survey gratis</Link>
+          <Link to="/kampanye-instalasi-listrik">Ajukan survey lokasi</Link>
         </Button>
         <Button asChild variant="outline-light">
           <a href={PROFILE_PDF} download={PROFILE_FILENAME}>
@@ -157,6 +157,7 @@ function StatsStrip() {
       </div>
     </section>
   );
+}
 
 function VendorTrust() {
   return (
