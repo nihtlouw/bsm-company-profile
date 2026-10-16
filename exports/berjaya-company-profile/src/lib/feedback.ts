@@ -13,6 +13,7 @@ export type GalleryModal = {
   kind: "gallery";
   title: string;
   image: string;
+  fallbackImage: string;
   caption: string;
 };
 

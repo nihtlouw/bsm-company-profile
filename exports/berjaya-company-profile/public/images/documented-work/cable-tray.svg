@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="t d">
+  <title id="t">Dokumentasi tray kabel ruang elektrikal</title>
+  <desc id="d">Ilustrasi cadangan yang digunakan sampai foto sumber halaman 32 company profile dipasang.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#14174f"/><stop offset="1" stop-color="#26366a"/></linearGradient>
+    <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse"><path d="M54 0H0V54" fill="none" stroke="#a9b9eb" stroke-opacity=".12" stroke-width="2"/></pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+  <g fill="none" stroke="#d7e2ff" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M260 185h640v410H260z" stroke-opacity=".6"/>
+    <path d="M300 275h560M300 355h560M300 435h560M300 515h560"/>
+    <path d="M360 220v340M490 220v340M620 220v340M750 220v340" stroke-opacity=".7"/>
+    <path d="M270 190l-45-45M890 190l45-45M270 590l-45 45M890 590l45 45" stroke-opacity=".5"/>
+  </g>
+  <rect x="160" y="640" width="880" height="90" rx="14" fill="#0d123e" fill-opacity=".86" stroke="#9cb5ff" stroke-opacity=".5"/>
+  <text x="600" y="676" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" text-anchor="middle">TRAY KABEL RUANG ELEKTRIKAL</text>
+  <text x="600" y="708" fill="#d3defd" font-family="Arial, Helvetica, sans-serif" font-size="20" text-anchor="middle">ILUSTRASI CADANGAN · FOTO SUMBER HLM. 32 BELUM DIPASANG</text>
+</svg>

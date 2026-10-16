@@ -72,12 +72,11 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
 export function profileJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "DigitalDocument",
-    name: "Company Profile PT Berjaya Sukses Makmur 2026",
-    encodingFormat: "application/pdf",
-    url: `${ORIGIN}/company-profile.pdf`,
+    "@type": "WebPage",
+    name: "Company Profile & Dokumen PT Berjaya Sukses Makmur",
+    url: `${ORIGIN}/profil-perusahaan`,
     inLanguage: "id",
-    about: "Electrical engineering and installation contractor",
+    about: "Dokumentasi pekerjaan elektrikal dan ringkasan dokumen perusahaan",
     author: {
       "@type": "GeneralContractor",
       name: COMPANY.name,

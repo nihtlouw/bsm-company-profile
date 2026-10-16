@@ -129,8 +129,7 @@ export function ProfilePage() {
                   <h3 className="mt-1 text-base font-bold">{p.title}</h3>
                   <p className="mt-2 text-xs text-muted">{p.sourcePage}</p>
                   <Link
-                    to="/proyek/$id"
-                    params={{ id: p.id }}
+                    to={"/proyek/" + p.id}
                     className="mt-3 inline-block text-sm font-bold text-navy-bright"
                   >
                     Detail rujukan →
