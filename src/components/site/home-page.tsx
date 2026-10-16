@@ -305,6 +305,10 @@ function Portfolio() {
                   <img
                     src={p.image}
                     alt={`${p.title} — ${p.subtitle}`}
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = p.fallbackImage;
+                    }}
                     className="size-full object-cover outline outline-1 -outline-offset-1 outline-ink/10"
                   />
                 </div>
@@ -417,6 +421,7 @@ function Gallery() {
                   kind: "gallery",
                   title: g.title,
                   image: g.image,
+                  fallbackImage: g.fallbackImage,
                   caption: g.caption,
                 })
               }
@@ -425,6 +430,10 @@ function Gallery() {
               <img
                 src={g.image}
                 alt={g.title}
+                onError={(event) => {
+                  event.currentTarget.onerror = null;
+                  event.currentTarget.src = g.fallbackImage;
+                }}
                 className="size-full object-cover outline outline-1 -outline-offset-1 outline-ink/10 transition-transform duration-200 hover:scale-105"
               />
               <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-navy/85 to-transparent px-2.5 pt-8 pb-2.5 text-left text-xs font-semibold text-paper">
