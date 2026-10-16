@@ -343,6 +343,10 @@ function ModalBox({
           <img
             src={modal.image}
             alt={modal.title}
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = "/images/documented-work/cable-tray.svg";
+            }}
             className="mt-4 aspect-square w-full rounded-md object-cover outline outline-1 -outline-offset-1 outline-ink/10"
           />
           <p className="mt-3 text-sm text-muted">{modal.caption}</p>
