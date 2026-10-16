@@ -9,7 +9,7 @@ import {
   PROJECT_TYPES,
   TESTIMONIALS,
 } from "@/lib/site-data";
-import { saveWebInquiry } from "@/lib/web-leads";
+
 import { cn, waLink } from "@/lib/utils";
 
 export function CampaignPage({
@@ -41,17 +41,10 @@ export function CampaignPage({
     if (Object.keys(next).length) return;
 
     const msg = `Halo, saya ${data.name} (${data.phone}) ingin minta penawaran untuk ${data.type} di ${data.loc}.`;
-    saveWebInquiry({
-      name: data.name,
-      phone: data.phone,
-      type: data.type,
-      loc: data.loc,
-      source: "campaign_lead",
-    });
     setWaHref(waLink(msg));
     e.currentTarget.reset();
     setSuccess(true);
-    showToast("Permintaan tersimpan. Klik WhatsApp untuk menindaklanjuti.");
+    showToast("Brief siap. Klik WhatsApp untuk memeriksa dan mengirim pesan.");
   }
 
   return (
@@ -60,7 +53,7 @@ export function CampaignPage({
         <div className="relative mx-auto grid max-w-6xl items-start gap-11 px-5 md:grid-cols-[1.1fr_0.9fr] md:px-8">
           <div>
             <span className="mb-4 inline-block rounded-md bg-brand px-3 py-1.5 text-xs font-bold text-paper">
-              Promo survey lokasi
+              Permintaan survey lokasi
             </span>
             <h1 className="text-4xl leading-tight md:text-5xl">
               Survey instalasi listrik{" "}
@@ -143,7 +136,7 @@ export function CampaignPage({
             ["15+", "Tahun pengalaman"],
             ["120+", "Proyek elektrikal"],
             ["2", "Cabang"],
-            ["1×24 jam", "Respon hari kerja"],
+            ["tindak lanjut dikonfirmasi tim", "Respon hari kerja"],
           ].map(([n, l]) => (
             <div key={l} className="py-2">
               <p className="text-2xl font-extrabold tabular-nums text-navy-mid">{n}</p>
