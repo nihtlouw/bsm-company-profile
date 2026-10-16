@@ -5,7 +5,7 @@ export const COMPANY = {
   focus: "Electrical, Mechanical, Civil, Trading & EO",
   founded: 2014,
   email: "pt.berjayasuksesmakmur@gmail.com",
-  phoneDisplay: "0711 812 429 · 0856 972 95500",
+  phoneDisplay: "0856-972-95500",
   waNumber: "6285697295500",
 } as const;
 
