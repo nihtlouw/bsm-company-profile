@@ -187,7 +187,7 @@ function VendorTrust() {
           ))}
         </div>
         <Link to="/profil-perusahaan" className="text-xs font-bold text-navy-bright">
-          Company profile PDF →
+          Company profile & dokumen →
         </Link>
       </div>
     </section>
