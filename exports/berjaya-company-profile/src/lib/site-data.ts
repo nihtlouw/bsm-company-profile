@@ -129,10 +129,10 @@ export const CERTIFICATIONS = [
 ] as const;
 
 export const GALLERY = [
-  { id: "hospital", title: "Instalasi elektrikal fasilitas kesehatan", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 29. Citra dipotong dari foto sumber, diperbesar, dan ditajamkan ringan.", image: "/images/documented-work/hospital-patient-room.webp", fallbackImage: "/images/documented-work/hospital.svg" },
-  { id: "residential", title: "Jaringan electrical perumahan", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 30. Citra dipotong dari foto sumber, diperbesar, dan ditajamkan ringan.", image: "/images/documented-work/residential-distribution-cabinet.webp", fallbackImage: "/images/documented-work/residential.svg" },
-  { id: "switchgear", title: "Panel / cubicle tegangan menengah", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 31. Citra dipotong dari foto sumber, diperbesar, dan ditajamkan ringan.", image: "/images/documented-work/medium-voltage-switchgear.webp", fallbackImage: "/images/documented-work/mv-switchgear.svg" },
-  { id: "cable-trays", title: "Tray kabel ruang elektrikal", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 32. Citra dipotong dari foto sumber, diperbesar, dan ditajamkan ringan.", image: "/images/documented-work/industrial-cable-trays.webp", fallbackImage: "/images/documented-work/mv-switchgear.svg" },
+  { id: "hospital", title: "Instalasi elektrikal fasilitas kesehatan", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 29. Gambar berasal dari dokumentasi visual pada halaman sumber company profile.", image: "/images/documented-work/hospital-patient-room.webp", fallbackImage: "/images/documented-work/hospital.svg" },
+  { id: "residential", title: "Jaringan electrical perumahan", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 30. Gambar berasal dari dokumentasi visual pada halaman sumber company profile.", image: "/images/documented-work/residential-distribution-cabinet.webp", fallbackImage: "/images/documented-work/residential.svg" },
+  { id: "switchgear", title: "Panel / cubicle tegangan menengah", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 31. Gambar berasal dari dokumentasi visual pada halaman sumber company profile.", image: "/images/documented-work/medium-voltage-switchgear.webp", fallbackImage: "/images/documented-work/mv-switchgear.svg" },
+  { id: "cable-trays", title: "Tray kabel ruang elektrikal", caption: "Foto dokumentasi: Company Profile BSM Karawang 2025, halaman 32. Gambar berasal dari dokumentasi visual pada halaman sumber company profile.", image: "/images/documented-work/industrial-cable-trays.webp", fallbackImage: "/images/documented-work/cable-tray.svg" },
 ] as const;
 
 export const CLIENTS = ["MEDCOENERGI", "Elnusa", "PUSRI", "Pertamina"] as const;
