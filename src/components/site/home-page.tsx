@@ -12,7 +12,7 @@ import {
   Wrench,
   Zap,
 } from "lucide-react";
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import { CtaBand } from "@/components/site/cta";
 import { ElectricalPanel } from "@/components/site/electrical-panel";
 import { FaqSection } from "@/components/site/faq-section";
@@ -37,10 +37,9 @@ import {
   PROJECTS,
   SERVICES,
   STATS,
-  TESTIMONIALS,
   type ProjectCategory,
 } from "@/lib/site-data";
-import { cn } from "@/lib/utils";
+import { cn, waLink } from "@/lib/utils";
 import { saveWebInquiry } from "@/lib/web-leads";
 
 const SERVICE_ICONS = [Zap, Cable, Shield, Wrench] as const;
@@ -74,7 +73,6 @@ export function HomePage() {
       <Gallery />
       <About />
       <Clients />
-      <Testimonials />
       <FaqSection />
       <Contact />
     </main>
@@ -149,62 +147,16 @@ function Hero() {
 function StatsStrip() {
   return (
     <section className="border-b border-line bg-card">
-      <div className="mx-auto grid max-w-6xl grid-cols-2 px-5 py-8 text-center md:grid-cols-4 md:px-8">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-3 px-5 py-7 sm:grid-cols-2 md:grid-cols-4 md:px-8">
         {STATS.map((s) => (
-          <div key={s.label} className="py-2">
-            <p className="text-3xl font-extrabold text-navy-mid">
-              <StatNum target={s.value} suffix={s.suffix} />
-            </p>
-            <p className="mt-1 text-xs text-muted">{s.label}</p>
+          <div key={s.label} className="rounded-md border border-line bg-page px-4 py-4 text-left">
+            <p className="text-xl font-extrabold leading-tight text-navy-mid">{s.value}</p>
+            <p className="mt-1.5 text-xs leading-relaxed text-muted">{s.label}</p>
           </div>
         ))}
       </div>
     </section>
   );
-}
-
-function StatNum({ target, suffix }: { target: number; suffix: string }) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const [val, setVal] = useState(0);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    let raf = 0;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        io.disconnect();
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-          setVal(target);
-          return;
-        }
-        const t0 = performance.now();
-        const dur = 1200;
-        const step = (ts: number) => {
-          const p = Math.min((ts - t0) / dur, 1);
-          setVal(Math.floor(p * target));
-          if (p < 1) raf = requestAnimationFrame(step);
-          else setVal(target);
-        };
-        raf = requestAnimationFrame(step);
-      },
-      { threshold: 0.4 },
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      cancelAnimationFrame(raf);
-    };
-  }, [target]);
-
-  return (
-    <span ref={ref} className="tabular-nums">
-      {val}
-      {suffix}
-    </span>
-  );
-}
 
 function VendorTrust() {
   return (
@@ -323,7 +275,7 @@ function Portfolio() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <SectionHead
           title="Portofolio proyek elektrikal"
-          note="Studi kasus dari fasilitas kesehatan, pabrik, dan gedung komersial."
+          note="Ringkasan merujuk pada dokumentasi pekerjaan di Company Profile BSM Karawang 2025; detail yang tidak tertera pada sumber tidak diklaim."
         />
         <div className="mb-6 flex flex-wrap gap-2.5">
           {CATEGORIES.map((c) => (
@@ -453,7 +405,7 @@ function Gallery() {
   return (
     <section id="galeri" className="py-16 md:py-20">
       <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <SectionHead title="Galeri" note="Cuplikan pekerjaan di ruang panel, tray, dan gedung." />
+        <SectionHead title="Ilustrasi lingkup pekerjaan" note="Ilustrasi vektor kategori pekerjaan; foto dokumentasi asli berasal dari Company Profile 2025 dan disiapkan dalam paket aset web." />
         <Reveal stagger className="grid grid-cols-2 gap-3.5 md:grid-cols-3">
           {GALLERY.map((g) => (
             <button
@@ -540,7 +492,7 @@ function Clients() {
       <div className="mx-auto max-w-6xl px-5 md:px-8">
         <SectionHead
           title="Klien & Mitra"
-          note="Fasilitas yang mempercayakan pekerjaan elektrikal kepada kami."
+          note="Nama berikut tercantum pada bagian “Our Customers” dalam Company Profile BSM Karawang 2025; penggunaan logo perlu izin terpisah."
         />
         <Reveal stagger className="grid grid-cols-2 gap-4 md:grid-cols-5">
           {CLIENTS.map((name) => (
@@ -557,36 +509,12 @@ function Clients() {
   );
 }
 
-function Testimonials() {
-  return (
-    <section id="testimoni" className="py-16 md:py-20">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
-        <SectionHead
-          title="Yang dikatakan klien"
-          note="Cuplikan dari facility manager dan plant engineer setelah serah terima."
-        />
-        <Reveal stagger className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          {TESTIMONIALS.map((t) => (
-            <blockquote
-              key={t.author}
-              className="rounded-md border border-line bg-card p-6 shadow-card"
-            >
-              <p className="text-[0.95rem] leading-relaxed text-ink">“{t.quote}”</p>
-              <footer className="mt-4 text-sm font-bold">
-                {t.author}
-                <span className="mt-0.5 block text-xs font-medium text-muted">{t.role}</span>
-              </footer>
-            </blockquote>
-          ))}
-        </Reveal>
-      </div>
-    </section>
-  );
-}
+
 
 function Contact() {
   const showToast = useFeedback((s) => s.showToast);
   const [success, setSuccess] = useState(false);
+  const [whatsAppHref, setWhatsAppHref] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -611,9 +539,11 @@ function Contact() {
     if (Object.keys(next).length) return;
 
     saveWebInquiry({ ...data, source: "contact_form" });
+    const message = `Halo, saya ${data.name} dari ${data.company}. Keperluan: ${data.type}. Email: ${data.email}. Pesan: ${data.message}`;
+    setWhatsAppHref(waLink(message, COMPANY.waNumber));
     form.reset();
     setSuccess(true);
-    showToast("Pesan terkirim. Tim kami akan menghubungi Anda dalam 1×24 jam.");
+    showToast("Brief disiapkan. Klik WhatsApp untuk mengirimkannya ke tim.");
   }
 
   return (
@@ -623,8 +553,8 @@ function Contact() {
           <div className="rounded-lg bg-navy p-7 text-on-navy">
             <h2 className="text-lg text-paper">Kirim brief proyek</h2>
             <p className="mt-2 text-sm text-on-navy-muted">
-              Kami merespons dalam 1×24 jam pada hari kerja. Untuk tender, lampirkan unduhan
-              company profile di paket vendor Anda.
+              Formulir menyimpan brief pada browser ini. Untuk mengirimkannya ke tim, lanjutkan melalui WhatsApp.
+              Untuk tender, sebutkan dokumen vendor yang dibutuhkan.
             </p>
             {OFFICES.map((o) => (
               <div key={o.city} className="mt-5 flex gap-3">
@@ -632,6 +562,9 @@ function Contact() {
                 <p className="text-sm text-on-navy-muted">
                   <strong className="mb-0.5 block text-sm text-paper">{o.city}</strong>
                   {o.line}
+                  <br />
+                  <span className="mt-1 block text-paper/80">Telepon: {o.phone}</span>
+                  <a className="block text-paper/80 underline underline-offset-2" href={`mailto:${o.email}`}>{o.email}</a>
                 </p>
               </div>
             ))}
@@ -661,8 +594,13 @@ function Contact() {
           >
             {success ? (
               <div className="mb-4 rounded-xl border border-success-line bg-success-bg p-4 text-sm text-success">
-                Pesan terkirim. Tim kami akan menghubungi Anda dalam 1×24 jam.
+                Brief sudah disiapkan, tetapi belum dikirim otomatis oleh formulir. Klik tautan WhatsApp di bawah untuk mengirimkannya ke tim.
               </div>
+            ) : null}
+            {whatsAppHref ? (
+              <a href={whatsAppHref} target="_blank" rel="noreferrer" className="mb-4 inline-flex min-h-11 items-center rounded-md bg-wa px-4 py-2 text-sm font-bold text-white underline-offset-4 hover:underline">
+                Kirim brief melalui WhatsApp
+              </a>
             ) : null}
             <Field id="cName" name="name" label="Nama Lengkap" error={errors.name} />
             <Field id="cEmail" name="email" label="Email" type="email" error={errors.email} />
