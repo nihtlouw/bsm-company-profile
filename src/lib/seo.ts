@@ -75,7 +75,7 @@ export function profileJsonLd() {
     "@type": "DigitalDocument",
     name: "Company Profile PT Berjaya Sukses Makmur",
     encodingFormat: "application/pdf",
-    url: `${ORIGIN}/company-profile.pdf`,
+    url: `${ORIGIN}/company-profile-public-safe-2025.pdf`,
     inLanguage: "id",
     about: "Electrical engineering and installation contractor",
     author: {
