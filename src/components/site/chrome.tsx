@@ -3,7 +3,7 @@ import { ArrowLeft, Menu, Phone, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useFeedback, type ModalState } from "@/lib/feedback";
-import { COMPANY, NAV, PROFILE_FILENAME, PROFILE_PDF, SERVICES } from "@/lib/site-data";
+import { COMPANY, NAV, SERVICES } from "@/lib/site-data";
 import { cn, waLink } from "@/lib/utils";
 
 export function SiteHeader() {
@@ -107,9 +107,9 @@ export function SiteHeader() {
             Company profile
           </Link>
           <Button asChild variant="outline" className="mt-2">
-            <a href={PROFILE_PDF} download={PROFILE_FILENAME} onClick={() => setOpen(false)}>
-              Unduh PDF
-            </a>
+            <Link to="/profil-perusahaan" onClick={() => setOpen(false)}>
+              Company profile & dokumen
+            </Link>
           </Button>
           <Button asChild className="mt-2">
             <a href="/#contact" onClick={() => setOpen(false)}>
