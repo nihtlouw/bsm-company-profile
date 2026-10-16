@@ -14,8 +14,8 @@ export function CampaignPageRoute() {
   return (
     <>
       <SeoHead
-        title="Survey instalasi listrik gratis — PT Berjaya Sukses Makmur"
-        description="Minta survey lokasi gratis untuk instalasi listrik rumah sakit, pabrik, atau gedung komersial. Palembang & Karawang, respon 1×24 jam."
+        title="Permintaan survey instalasi listrik — PT Berjaya Sukses Makmur"
+        description="Ajukan diskusi awal untuk pekerjaan instalasi listrik. Dokumentasi perusahaan mencakup fasilitas kesehatan, jaringan perumahan, serta pekerjaan tegangan menengah. Waktu tindak lanjut dikonfirmasi tim."
       />
       <CampaignHeader />
       <CampaignPage waHref={waHref} setWaHref={setWaHref} />
