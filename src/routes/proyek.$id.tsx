@@ -67,7 +67,11 @@ function ProjectRoute() {
           <article>
             <img
               src={p.image}
-              alt={`${p.title} — ilustrasi lingkup pekerjaan`}
+              alt={`${p.title} — dokumentasi pekerjaan`}
+              onError={(event) => {
+                event.currentTarget.onerror = null;
+                event.currentTarget.src = p.fallbackImage;
+              }}
               className="aspect-video w-full rounded-md object-cover outline outline-1 -outline-offset-1 outline-ink/10"
             />
             <h2 className="mt-8 text-lg">Rujukan dokumen</h2>
